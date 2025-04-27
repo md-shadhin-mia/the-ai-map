@@ -73,6 +73,10 @@ app.post('/api/tasks/feedback', (req, res) => {
 });
 
 /*
+Post v1/chat/completions
+/*
+
+/*
 POST /v1/api/show, Body: {"name":"deepseek-r1:latest"}
 
 */
