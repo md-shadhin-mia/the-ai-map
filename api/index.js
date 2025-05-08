@@ -74,7 +74,32 @@ app.post('/api/tasks/feedback', (req, res) => {
 
 /*
 Post v1/chat/completions
-/*
+*/
+
+app.post('/v1/chat/completions', (req, res) => {
+  const { model, messages, temperature } = req.body;
+  console.log('Received request for chat completion:', { model, messages, temperature });
+
+  // Simulate a response from the Ollama API
+  const ollmaResponse = {
+    id: 'chatcmpl-123',
+    object: 'chat.completion',
+    created: Date.now(),
+    model: model,
+    choices: [
+      {
+        index: 0,
+        message: {
+          role: 'assistant',
+          content: 'This is a simulated response from the Ollama API.'
+        },
+        finish_reason: 'stop'
+      }
+    ]
+  };
+
+  res.json(ollmaResponse);
+});
 
 /*
 POST /v1/api/show, Body: {"name":"deepseek-r1:latest"}
